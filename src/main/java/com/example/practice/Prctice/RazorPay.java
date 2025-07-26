@@ -1,4 +1,4 @@
-package com.example.practice;
+package com.example.practice.Prctice;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.stereotype.Component;

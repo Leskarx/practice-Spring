@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class PracticeApplication implements CommandLineRunner  {
+public class PracticeApplication   {
 	
 
 	public static void main(String[] args) {
@@ -15,19 +15,21 @@ public class PracticeApplication implements CommandLineRunner  {
 	
 	
 	}
-	private PaymentServices paymentServices;
-	public PracticeApplication(RazorPay paymentServices){
-		this.paymentServices=paymentServices;
 
-	}
+	
+	// private PaymentServices paymentServices;
+	// public PracticeApplication(RazorPay paymentServices){
+	// 	this.paymentServices=paymentServices;
+
+	// }
 	
 	
 
-	@Override
-	public void run(String...args){
-		System.out.println(paymentServices.pay());
+	// @Override
+	// public void run(String...args){
+	// 	System.out.println(paymentServices.pay());
 		
-	}
+	// }
 
 	
 	
