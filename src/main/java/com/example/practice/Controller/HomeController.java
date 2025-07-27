@@ -2,8 +2,12 @@ package com.example.practice.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 import com.example.practice.Dto.StudentDto;
+// import com.example.practice.Dto.StudentDto;
+
+import com.example.practice.service.StudentService;
 
 
 
@@ -11,9 +15,21 @@ import com.example.practice.Dto.StudentDto;
 
 
 public class HomeController {
+   private final StudentService studentService;
+  
+
+
+
+   public HomeController(StudentService studentService) {
+      this.studentService = studentService;
+   }
+
+
+
+
    @GetMapping("/student")
-   public StudentDto getStudent(){
-      return new StudentDto(11, "GOuri", "leskarzone@gmail.com,");
+   public List<StudentDto> getStudent(){
+      return studentService.getAllStudent();
      
 
    }
