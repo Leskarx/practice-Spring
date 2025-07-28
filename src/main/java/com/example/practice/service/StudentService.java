@@ -6,5 +6,6 @@ import com.example.practice.Dto.StudentDto;
 
 public interface StudentService {
     List<StudentDto> getAllStudent();
+    StudentDto getStudentById(Long id);
     
 }

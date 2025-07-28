@@ -1,7 +1,9 @@
 package com.example.practice.service.imple;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 import org.springframework.stereotype.Service;
 
@@ -27,5 +29,21 @@ public class StudentServiceI implements StudentService {
                 student.getName(),
                 student.getEmail()))
         .collect(Collectors.toList());
+    }
+
+    @Override
+    public StudentDto getStudentById(Long id) {
+        // TODO Auto-generated method stub
+        Optional<StudentEntity> optionalStudent = studentRepo.findById(id);
+        if(optionalStudent.isPresent()){
+            StudentEntity student=optionalStudent.get();
+            return new StudentDto(student.getId(),student.getName(),student.getEmail());
+        }else{
+            throw new RuntimeException("student is not found");
+
+        }
+
+
+        
     }
 }
