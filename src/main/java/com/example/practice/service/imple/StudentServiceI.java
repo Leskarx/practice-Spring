@@ -19,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class StudentServiceI implements StudentService {
 
     private final StudentRepo studentRepo;
+    
 
     @Override
     public List<StudentDto> getAllStudent() {
@@ -46,4 +47,24 @@ public class StudentServiceI implements StudentService {
 
         
     }
+
+    @Override
+    public StudentDto saveStudent(StudentDto studentDto) {
+        StudentEntity student = new StudentEntity();
+       
+
+       
+        student.setEmail(studentDto.getEmail());
+        student.setName(studentDto.getName());
+        // System.out.println("ID........................................: " + student.getId());
+        StudentEntity savStudentEntity= studentRepo.save(student);
+
+
+
+
+
+        // TODO Auto-generated method stub
+        return new StudentDto(savStudentEntity.getId(),savStudentEntity.getName(),savStudentEntity.getEmail());
+    }
+    
 }
